@@ -27,6 +27,7 @@ namespace ProjetBD
         public MainWindow()
         {
             this.InitializeComponent();
+            lvliste.ItemsSource = Singleton.getInstance().GetCompagnie();
         }
 
         private void iDeconnexion_Tapped(object sender, TappedRoutedEventArgs e)

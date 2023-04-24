@@ -27,7 +27,7 @@
                 </NavigationView.PaneFooter>
             </NavigationView>
 
-
+            <ListView x:Name="lvliste"/>
         </StackPanel>
     </StackPanel>
     
