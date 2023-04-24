@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetBD
+{
+    internal class Compagnie
+    {
+
+        String nom;
+        double capacite_prod;
+        double prod_reelle;
+        double revenu_annuelle;
+        double prix_baril;
+
+        public Compagnie()
+        {
+            this.nom = "";
+            this.capacite_prod = 0;
+            this.prod_reelle = 0;
+            this .revenu_annuelle = 0;
+            this.prix_baril = 0;
+
+        }
+
+        public Compagnie(string nom, double capacite_prod, double prod_reelle, double revenu_annuelle, double prix_baril)
+        {
+            this.Nom = nom;
+            this.Capacite_prod = capacite_prod;
+            this.Prod_reelle = prod_reelle;
+            this.Revenu_annuelle = revenu_annuelle;
+            this.Prix_baril = prix_baril;
+        }
+
+        public string Nom { get => nom; set => nom = value; }
+        public double Capacite_prod { get => capacite_prod; set => capacite_prod = value; }
+        public double Prod_reelle { get => prod_reelle; set => prod_reelle = value; }
+        public double Revenu_annuelle { get => revenu_annuelle; set => revenu_annuelle = value; }
+        public double Prix_baril { get => prix_baril; set => prix_baril = value; }
+    }
+}
