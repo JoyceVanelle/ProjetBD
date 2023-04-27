@@ -27,17 +27,45 @@ namespace ProjetBD
         public MainWindow()
         {
             this.InitializeComponent();
-            lvliste.ItemsSource = Singleton.getInstance().GetCompagnie();
+           //lvliste.ItemsSource = Singleton.getInstance().GetCompagnie();
         }
 
-        private void iDeconnexion_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ContentDialog dialog = new ContentDialog();
-            dialog.Title = "Test";
-            dialog.CloseButtonText = "OK";
-            dialog.Content = "OK";
+        //private void iDeconnexion_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    ContentDialog dialog = new ContentDialog();
+        //    dialog.Title = "Test";
+        //    dialog.CloseButtonText = "OK";
+        //    dialog.Content = "OK";
 
-              dialog.ShowAsync();
+        //      dialog.ShowAsync();
+        //}
+
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var item = (NavigationViewItem)args.SelectedItem;
+
+            switch (item.Tag)
+            {
+                case "Creation":
+                    mainFrame.Navigate(typeof(PageCreationCompagnie));
+                    break;
+                case "gissement":
+                    mainFrame.Navigate(typeof(PageCreationGissement));
+                    break;
+
+                default:
+                    break;
+
+            }
+            try
+            {
+                tblHeader.Text = item.Content.ToString();
+            }
+            catch (Exception)
+            {
+                tblHeader.Text = "vide";
+
+            };
         }
 
 

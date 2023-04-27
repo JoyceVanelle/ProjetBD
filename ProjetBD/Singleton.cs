@@ -45,9 +45,9 @@ namespace ProjetBD
 
                 while (r.Read())
                 {
-                    // client c = new client();
+                  
 
-                    liste.Add(new Compagnie()
+                     liste.Add(new Compagnie()
                     {
                         Id_Compagnie = (int)r.GetInt32(0),
                         Nom = r.GetString(1),
@@ -72,9 +72,50 @@ namespace ProjetBD
                     con.Close();
 
             }
-            return liste;
+               return liste;
 
         }
+
+        public void AjouterCompagnie(String nom, double capacite_prod, double  prod_reelle, double revenu_annuelle,  double prix_baril)
+        {
+
+
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand();
+                commande.Connection = con;
+                commande.CommandText = "insert into compagnie(nom,capacite_prod ,prod_reelle,revenu_annuelle,prix_baril) " +
+                "values(@nom,@capacite_prod,@prod_reelle,@revenu_annuelle,@prix_baril)";
+
+                commande.Parameters.AddWithValue("@nom", nom);
+                commande.Parameters.AddWithValue("@capacite_prod", capacite_prod);
+                commande.Parameters.AddWithValue("@prod_reelle", prod_reelle);
+                commande.Parameters.AddWithValue("@revenu_annuelle", revenu_annuelle);
+                commande.Parameters.AddWithValue("@prix_baril", prix_baril);
+              
+
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+
+
+                con.Close();
+            }
+
+
+
+            catch (MySqlException ex)
+            {
+                con.Close();
+            }
+
+
+
+        }
+
+
 
     }
 }
